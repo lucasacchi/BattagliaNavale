@@ -273,9 +273,9 @@ void Battaglia::azioneGiocatore(Scacchiera &s0)
 	while (!mossaPermessa)
 	{
 		if (attemptCount>0)
-			cout<<"That move has already been attempted. Try again. \n";
+			cout << "Questa mossa è già stata tentata. Riprova. \n";
 
-		cout<<"Please enter location [Letter][Number] of desired move:\n";
+		cout << "Inserisci la posizione [Lettera][Numero] della mossa desiderata:\n";
 		entryTemp=getSquare();
 		x=static_cast<int>(entryTemp[0]);
 		y=static_cast<int>(entryTemp[1]);
@@ -332,8 +332,9 @@ string Battaglia::getSquare()
 			inputValido=true;
 		else
 		{
-			cout<<"Bad input! Please enter location [Letter][Number] of "
-						<<"your desired move, with capital letters only:\n";
+			cout << "Input non valido! Inserisci la posizione [Lettera][Numero] della "
+					<< "mossa desiderata, usando solo lettere maiuscole:\n";
+
 			std::getline(std::cin, retString);
 		}
 	}
@@ -342,18 +343,17 @@ string Battaglia::getSquare()
 }
 
 
-// switchPlayers is a function that controls the screen between turns,
-// ensuring that the player whose turn it is can control what is visible
-// on the screen in case someone else is peeking
+// invertiGiocatori è una funzione che gestisce il cambio di turno,
+// assicurandosi che il giocatore di turno possa controllare cosa è visibile
+// sullo schermo, evitando che l'altro giocatore possa sbirciare.
 void Battaglia::invertiGiocatori(string gIn, string gFin)  // giocatore iniziale e finale
 {
-	cout<<endl<<gIn<<", press ENTER to finish your turn!";
-	std::cin.get();
-	cout<<std::flush;
-	cout<<string(100,'\n');
-	cout<<endl<<gFin<<", press ENTER to start your turn!";
-	std::cin.get();
-	cout<<std::flush;
-	cout<<string(100,'\n');
-
+    cout << endl << gIn << ", premi INVIO per terminare il tuo turno!";
+    std::cin.get();
+    cout << std::flush;
+    cout << string(100, '\n');
+    cout << endl << gFin << ", premi INVIO per iniziare il tuo turno!";
+    std::cin.get();
+    cout << std::flush;
+    cout << string(100, '\n');
 }
